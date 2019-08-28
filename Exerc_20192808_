@@ -1,0 +1,221 @@
+Ex 1)
+Algoritmo "calcula_aritimetica"
+// Disciplina   : [Linguagem e Lógica de Programação]
+// Professor   : Antonio Carlos Nicolodi 
+// Descrição   : Aqui você descreve o que o programa faz! (função)
+// Autor(a)    : Nome do(a) aluno(a)
+// Data atual  : 28/08/2019
+Var
+// Seção de Declarações das variáveis 
+   n1, n2 : real
+
+Inicio
+// Seção de Comandos, procedimento, funções, operadores, etc... 
+   escreval("Digite o primeiro número: ")
+   leia(n1)
+   
+   escreval("Digite o segundo número: ")
+   leia(n2)
+   
+   escreval("")
+   escreval("A soma dos números é ", n1 + n2)
+   escreval("A diferença dos números é ", n1 - n2)
+   escreval("O produto dos números é ", n1 * n2)
+   escreval("A divisão dos números é ", n1 / n2)
+
+Fimalgoritmo
+
+
+Ex 2)
+Algoritmo "calculo_altura"
+// Disciplina   : [Linguagem e Lógica de Programação]
+// Professor   : Antonio Carlos Nicolodi 
+// Descrição   : Aqui você descreve o que o programa faz! (função)
+// Autor(a)    : Nome do(a) aluno(a)
+// Data atual  : 28/08/2019
+Var
+// Seção de Declarações das variáveis 
+   peso, altura, p_ideal : real
+
+Inicio
+// Seção de Comandos, procedimento, funções, operadores, etc... 
+   escreval("Informe a altura em centímetros: ")
+   leia(altura)
+   
+   p_ideal <- 72.7 * altura - 58
+   
+   escreval("O peso ideal é :", p_ideal)
+
+Fimalgoritmo
+
+Ex 3)
+Algoritmo "calcula_fahrenheit"
+// Disciplina   : [Linguagem e Lógica de Programação]
+// Professor   : Antonio Carlos Nicolodi 
+// Descrição   : Aqui você descreve o que o programa faz! (função)
+// Autor(a)    : Nome do(a) aluno(a)
+// Data atual  : 28/08/2019
+Var
+// Seção de Declarações das variáveis 
+   cel, fah : real
+
+Inicio
+// Seção de Comandos, procedimento, funções, operadores, etc... 
+   escreval("Informe a temperatura em graus Celsius: ")
+   leia(cel)
+   
+   fah <- 9 * cel / 5 + 32
+   
+   escreval("A temperatura em Fahrenheit é :", fah, "°F")
+
+Fimalgoritmo
+
+Ex 4)
+Algoritmo "calcula_votos"
+// Disciplina   : [Linguagem e Lógica de Programação]
+// Professor   : Antonio Carlos Nicolodi 
+// Descrição   : Aqui você descreve o que o programa faz! (função)
+// Autor(a)    : Nome do(a) aluno(a)
+// Data atual  : 28/08/2019
+Var
+// Seção de Declarações das variáveis 
+   v_branco, v_validos, v_nulos, v_total : inteiro
+   p_branco, p_validos, p_nulos : real
+
+Inicio
+// Seção de Comandos, procedimento, funções, operadores, etc... 
+   escreval("Informe a quantidade de votos em branco: ")
+   leia(v_branco)
+
+   escreval("Informe a quantidade de votos nulos: ")
+   leia(v_nulos)
+
+   escreval("Informe a quantidade de votos válidos: ")
+   leia(v_validos)
+
+   v_total <- v_branco + v_validos + v_nulos
+   escreval("O total de votos é: ", v_total)
+   escreval(" ")
+   
+   p_branco <- v_branco / v_total * 100
+   p_nulos  <- v_nulos / v_total * 100
+   p_validos <- v_validos / v_total * 100
+   
+   escreval("O percentual de votos é: ")
+   escreval("Branco: ", p_branco,"%")
+   escreval("Nulos: ", p_nulos,"%")
+   escreval("Válidos: ",p_validos,"%")
+   
+
+Fimalgoritmo
+
+
+Ex 5)
+Algoritmo "calcula_parcela"
+// Disciplina   : [Linguagem e Lógica de Programação]
+// Professor   : Antonio Carlos Nicolodi 
+// Descrição   : Aqui você descreve o que o programa faz! (função)
+// Autor(a)    : Nome do(a) aluno(a)
+// Data atual  : 28/08/2019
+Var
+// Seção de Declarações das variáveis 
+   vl_compra, vl_parcela : real
+   qtd_parcela : inteiro
+
+Inicio
+// Seção de Comandos, procedimento, funções, operadores, etc... 
+   escreval("Qual o valor total da compra? ")
+   leia(vl_compra)
+   
+
+        vl_parcela <- vl_compra / 5
+        escreval("Sua será parcelada em 5x de: R$", vl_parcela)
+        
+Fimalgoritmo
+
+Ex6)
+Algoritmo "compra_itens"
+// Disciplina   : [Linguagem e Lógica de Programação]
+// Professor   : Antonio Carlos Nicolodi
+// Descrição   : Aqui você descreve o que o programa faz! (função)
+// Autor(a)    : Nome do(a) aluno(a)
+// Data atual  : 28/08/2019
+Var
+// Seção de Declarações das variáveis
+   qtd_dog, qtd_refri, qtd_fritas : inteiro
+   vl_dog, vl_refri, vl_fritas : real
+   vl_total : real
+
+Inicio
+// Seção de Comandos, procedimento, funções, operadores, etc...
+   escreval("Qual a quantidade de Hot-dogs desejada? ")
+   leia(qtd_dog)
+
+   vl_dog <- 2 * qtd_dog
+
+   escreval("Qual a quantidade de Refrigerantes desejada? ")
+   leia(qtd_refri)
+   vl_refri <- 3 * qtd_refri
+
+   escreval("Qual a quantidade de porções de Fritas desejada? ")
+   leia(qtd_fritas)
+   vl_fritas <- 1.5 * qtd_fritas
+
+   vl_total <- vl_dog + vl_refri + vl_fritas
+
+   escreval ("O valor total da sua compra é: R$", vl_total)
+
+Fimalgoritmo
+
+Ex 7)
+
+Algoritmo "calculo_comissao"
+// Disciplina   : [Linguagem e Lógica de Programação]
+// Professor   : Antonio Carlos Nicolodi 
+// Descrição   : Aqui você descreve o que o programa faz! (função)
+// Autor(a)    : Nome do(a) aluno(a)
+// Data atual  : 28/08/2019
+Var
+// Seção de Declarações das variáveis 
+   salario_base, salario_bruto, vendas, comissao : real
+Inicio
+// Seção de Comandos, procedimento, funções, operadores, etc... 
+   escreval("Qual o salário base? ")
+   leia(salario_base)
+   escreval("Qual o valor total de vendas? ")
+   leia(vendas)
+   comissao <- vendas * 10 / 100
+
+   salario_bruto <- salario_base + comissao
+
+   escreval("O valor de comissão é: R$", comissao)
+   escreval("O salário bruto é: R$", salario_bruto)
+
+Fimalgoritmo
+
+Ex 8)
+Algoritmo "velicidade_media"
+// Disciplina   : [Linguagem e Lógica de Programação]
+// Professor   : Antonio Carlos Nicolodi 
+// Descrição   : Aqui você descreve o que o programa faz! (função)
+// Autor(a)    : Nome do(a) aluno(a)
+// Data atual  : 28/08/2019
+Var
+// Seção de Declarações das variáveis 
+   s, t, vm : real
+
+Inicio
+// Seção de Comandos, procedimento, funções, operadores, etc... 
+   escreval("Qual a distância em percorrida em Km:")
+   leia(s)
+   
+   escreval("Qual o intervalo de tempo em hs (horas):")
+   leia(t)
+   
+   vm <- s / t
+   
+   escreval("A velocidade média é de :", vm," Km/h")
+
+Fimalgoritmo
+
+
