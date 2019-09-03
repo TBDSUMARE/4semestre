@@ -1,0 +1,29 @@
+op = input('''Qual a operação desejada?
+           + Adição 
+           - Subtração
+           * Multiplicação
+           / Divisão
+           Operador:''')
+n1 = float(input("Digite o primeiro número: "))
+n2 = float(input("Digite o segundo número: "))
+
+if op == '+':
+    print('{} + {} = '.format(n1, n2))
+    print("O resultado é : ", n1 + n2)
+
+elif op == '-':
+     print('{} - {} = '.format(n1, n2))
+     print("O resultado é : ", n1 - n2)
+
+
+elif op == '*':
+     print('{} * {} = '.format(n1, n2))
+     print("O resultado é : ", n1 * n2)
+
+
+elif op == '/':
+     print('{} / {} = '.format(n1, n2))
+     print("O resultado é : ", n1 / n2)
+
+else :
+    print ("Você não escolheu um operador válido.")
