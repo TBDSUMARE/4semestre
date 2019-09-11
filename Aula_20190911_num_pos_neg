@@ -1,0 +1,26 @@
+Algoritmo "numero_pos_neg_neu"
+// Disciplina   : [Linguagem e Lógica de Programação]
+// Professor   : Antonio Carlos Nicolodi 
+// Descrição   : Aqui você descreve o que o programa faz! (função)
+// Autor(a)    : Nome do(a) aluno(a)
+// Data atual  : 11/09/2019
+Var
+// Seção de Declarações das variáveis 
+   numero : inteiro
+
+Inicio
+// Seção de Comandos, procedimento, funções, operadores, etc... 
+   escreva("Informe um número: ")
+   leia(numero)
+   
+   se numero < 0 entao
+      escreval("O numéro ", numero," é negativo!")
+   senao
+        se numero > 0 entao
+           escreval("O numéro ", numero," é positivo!")
+        senao
+             escreval("O numéro ", numero," é neutro!")
+        fimse
+   fimse
+
+Fimalgoritmo
