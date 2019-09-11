@@ -1,0 +1,56 @@
+Algoritmo "algo_idade_jogador"
+// Disciplina   : [Linguagem e Lógica de Programação]
+// Professor   : Antonio Carlos Nicolodi 
+// Descrição   : Aqui você descreve o que o programa faz! (função)
+// Autor(a)    : Nome do(a) aluno(a)
+// Data atual  : 11/09/2019
+Var
+// Seção de Declarações das variáveis 
+   ano_atual, ano_nasc, idade : inteiro
+   nome : caractere
+
+Inicio
+// Seção de Comandos, procedimento, funções, operadores, etc... 
+   escreval("Ano atual:")
+   leia(ano_atual)
+   
+   escreval("Qual o nome do jogador?")
+   leia(nome)
+   
+   escreval("Qual o ano de nascimento do jogador?")
+   leia(ano_nasc)
+   
+   idade <- ano_atual - ano_nasc
+   
+   se idade < 7 entao
+      escreval("Não tem idade para jogar bola!")
+   senao
+        se idade < 10 entao
+           escreval("Dente de leite")
+        senao
+             se idade < 13 entao
+                escreval("Mirim")
+             senao
+                  se idade < 16 entao
+                     escreval("Infantil")
+                  senao
+                       se idade < 18 entao
+                          escreval("Juvenil")
+                       senao
+                            se idade < 21 entao
+                               escreval ("Juniores")
+                            senao
+                                 se idade < 41 entao
+                                    escreval("Adulto")
+                                 senao
+                                      escreval("Seniors")
+                                 fimse
+                            fimse
+                       fimse
+                  fimse
+             fimse
+        fimse
+   fimse
+   
+
+Fimalgoritmo
