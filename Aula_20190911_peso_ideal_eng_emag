@@ -1,0 +1,35 @@
+Algoritmo "peso_ideal"
+// Disciplina   : [Linguagem e Lógica de Programação]
+// Professor   : Antonio Carlos Nicolodi
+// Descrição   : Aqui você descreve o que o programa faz! (função)
+// Autor(a)    : Nome do(a) aluno(a)
+// Data atual  : 11/09/2019
+Var
+// Seção de Declarações das variáveis
+   altura, peso_atual, peso_ideal : real
+
+Inicio
+// Seção de Comandos, procedimento, funções, operadores, etc...
+   escreval("Qual a sua altura?")
+   leia(altura)
+
+   escreval("Qual o seu peso atual?")
+   leia(peso_atual)
+
+   peso_ideal <- (72.7 * altura) – 58
+   
+   escreval("Seu peso ideal é ",peso_ideal)
+   
+   se peso_atual = peso_ideal entao
+      escreval("Você esta no peso ideal!)
+   senao
+        se peso_atual < peso_ideal entao
+           escreval("Você precisa engordar: ", peso_ideal - peso_atual)
+        senao
+             escreval("Você precisa engordar: ", peso_atual - peso_ideal)
+        fimse
+   fimse
+
+
+
+Fimalgoritmo
