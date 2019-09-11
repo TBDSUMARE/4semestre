@@ -1,0 +1,38 @@
+Algoritmo "cor_x_pal"
+// Disciplina   : [Linguagem e Lógica de Programação]
+// Professor   : Antonio Carlos Nicolodi 
+// Descrição   : Aqui você descreve o que o programa faz! (função)
+// Autor(a)    : Nome do(a) aluno(a)
+// Data atual  : 11/09/2019
+Var
+// Seção de Declarações das variáveis 
+g_time1, g_time2 : inteiro
+time1, time2 : caractere
+
+Inicio
+// Seção de Comandos, procedimento, funções, operadores, etc... 
+   Escreval ("qual é o time 1?")
+   leia(time1)
+   
+   Escreval ("Qual é o time 2?")
+   leia(time2)
+
+   Escreval("Quantos gols o ",time1," marcou?")
+   leia(g_time1)
+   
+   Escreval("Quantos gols o ",time2," marcou?")
+   leia(g_time2)
+
+   
+   se g_time1 > g_time2 entao
+      escreval("O ",time1," ganhou!")
+      senao
+           se g_time2 > g_time1 entao
+              escreval("O ",time2," ganhou!")
+           senao
+                escreval("Empate!")
+           fimse
+   fimse
+
+
+Fimalgoritmo
