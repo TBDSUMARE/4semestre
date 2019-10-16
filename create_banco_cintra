@@ -1,0 +1,136 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.0.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Tempo de geração: 17-Out-2019 às 00:39
+-- Versão do servidor: 10.3.16-MariaDB
+-- versão do PHP: 7.3.6
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Banco de dados: `tolosa`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `departamento`
+--
+
+CREATE TABLE `departamento` (
+  `cod_depto` int(11) NOT NULL,
+  `descr_depto` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `funcionarios`
+--
+
+CREATE TABLE `funcionarios` (
+  `cod_func` int(11) NOT NULL,
+  `nome_func` varchar(500) DEFAULT NULL,
+  `nasc_func` datetime DEFAULT NULL,
+  `sexo_func` char(1) DEFAULT NULL,
+  `salario_func` decimal(12,2) DEFAULT NULL,
+  `cod_depto` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `func_proj`
+--
+
+CREATE TABLE `func_proj` (
+  `cod_func` int(11) NOT NULL,
+  `cod_proj` int(11) NOT NULL,
+  `inicio_proj` datetime DEFAULT NULL,
+  `fim_proj` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `projeto`
+--
+
+CREATE TABLE `projeto` (
+  `cod_proj` int(11) NOT NULL ,
+  `desc_proj` varchar(500) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `departamento`
+--
+ALTER TABLE `departamento`
+  ADD PRIMARY KEY (`cod_depto`);
+
+--
+-- Índices para tabela `funcionarios`
+--
+ALTER TABLE `funcionarios`
+  ADD PRIMARY KEY (`cod_func`),
+  ADD KEY `fk_func_depto` (`cod_depto`);
+
+--
+-- Índices para tabela `func_proj`
+--
+ALTER TABLE `func_proj`
+  ADD PRIMARY KEY (`cod_func`,`cod_proj`),
+  ADD KEY `fk_codproj` (`cod_proj`),
+  ADD KEY `fk_codfunc` (`cod_func`);
+
+--
+-- Índices para tabela `projeto`
+--
+ALTER TABLE `projeto`
+  ADD PRIMARY KEY (`cod_proj`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `projeto`
+--
+ALTER TABLE `projeto`
+  MODIFY `cod_proj` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Restrições para despejos de tabelas
+--
+
+--
+-- Limitadores para a tabela `funcionarios`
+--
+ALTER TABLE `funcionarios`
+  ADD CONSTRAINT `fk_func_depto` FOREIGN KEY (`cod_depto`) REFERENCES `departamento` (`cod_depto`);
+
+--
+-- Limitadores para a tabela `func_proj`
+--
+ALTER TABLE `func_proj`
+  ADD CONSTRAINT `fk_codfunc` FOREIGN KEY (`cod_func`) REFERENCES `funcionarios` (`cod_func`),
+  ADD CONSTRAINT `fk_codproj` FOREIGN KEY (`cod_proj`) REFERENCES `projeto` (`cod_proj`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
