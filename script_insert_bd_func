@@ -1,0 +1,87 @@
+/*create database tolosa;*/
+
+create table departamento
+(
+	cod_depto int primary key auto_increment,
+    desc_depto varchar(100)
+);
+
+create table projeto
+(
+	cod_proj int primary key auto_increment,
+    desc_proj varchar(100)
+);
+
+create table funcionario
+(
+	cod_func int primary key auto_increment,
+    nome_func varchar(100),
+    nasc_func datetime,
+    sexo_func char(1),
+    salario_func decimal(12,2),
+    cod_depto int(11),
+    foreign key fk_cod_depto (cod_depto) references departamento(cod_depto) 
+);
+
+create table func_proj
+(
+	cod_func int ,
+    cod_proj int ,
+    inicio_proj datetime null,
+    fim_proj datetime null,
+    primary key (cod_func, cod_proj ),
+    foreign key fk_cod_func (cod_func) references funcionario(cod_func),
+    foreign key fk_cod_proj (cod_proj) references projeto(cod_proj)
+);
+
+-- INSERTS
+select * from departamento;
+
+INSERT into departamento (cod_depto, desc_depto) values (1, 'compras');
+INSERT into departamento (cod_depto, desc_depto) values (2, 'infra');
+INSERT into departamento (cod_depto, desc_depto) values (3, 'adm');
+INSERT into departamento (cod_depto, desc_depto) values (4, 'rh');
+INSERT into departamento (cod_depto, desc_depto) values (5, 'financeiro');
+INSERT into departamento (cod_depto, desc_depto) values (6, 'dev');
+INSERT into departamento (cod_depto, desc_depto) values (7, 'limpeza');
+INSERT into departamento (cod_depto, desc_depto) values (8, 'bi');
+INSERT into departamento (cod_depto, desc_depto) values (9, 'backup');
+INSERT into departamento (cod_depto, desc_depto) values (10, 'storage');
+
+select * from funcionario;
+desc funcionario;
+INSERT into funcionario (  nome_func, nasc_func, sexo_func, salario_func, cod_depto) values ('Pedro','1992-02-1','M',1.500,1);
+INSERT into funcionario ( nome_func, nasc_func, sexo_func, salario_func, cod_depto) values ('Joao','1993-03-2','M',1.600,1);
+INSERT into funcionario ( nome_func, nasc_func, sexo_func, salario_func, cod_depto) values ('Raul','1994-04-3','M',1.700,1);
+INSERT into funcionario ( nome_func, nasc_func, sexo_func, salario_func, cod_depto) values ('Pamela','1995-05-4','F',1.800,2);
+INSERT into funcionario ( nome_func, nasc_func, sexo_func, salario_func, cod_depto) values ('Julia','1996-06-5','F',1.900,2);
+INSERT into funcionario ( nome_func, nasc_func, sexo_func, salario_func, cod_depto) values ('Roberta','1997-07-6','F',2.900,4);
+INSERT into funcionario ( nome_func, nasc_func, sexo_func, salario_func, cod_depto) values ('Thais','1998-08-7','F',3.900,5);
+INSERT into funcionario ( nome_func, nasc_func, sexo_func, salario_func, cod_depto) values ('Maria','1997-09-8','F',4.900,4);
+INSERT into funcionario ( nome_func, nasc_func, sexo_func, salario_func, cod_depto) values ('Roberto','1998-09-9','M',5.900,4);
+INSERT into funcionario ( nome_func, nasc_func, sexo_func, salario_func, cod_depto) values ('Joilson','1996-06-5','M',6.900,5);
+
+select * from projeto;
+INSERT into projeto ( desc_proj) values ('Nestle');
+INSERT into projeto ( desc_proj) values ('Itau');
+INSERT into projeto ( desc_proj) values ('Vivo');
+INSERT into projeto ( desc_proj) values ('Claro');
+INSERT into projeto ( desc_proj) values ('Sky');
+INSERT into projeto ( desc_proj) values ('Tim');
+INSERT into projeto ( desc_proj) values ('Caixa');
+INSERT into projeto ( desc_proj) values ('SBT');
+INSERT into projeto ( desc_proj) values ('Globo');
+INSERT into projeto ( desc_proj) values ( 'SAP');
+
+SELECT * FROM func_proj;
+INSERT into func_proj (cod_func, cod_proj, inicio_proj, fim_proj) values (1,1,'2001-01-1','2002-01-1');
+INSERT into func_proj (cod_func, cod_proj, inicio_proj, fim_proj) values (2,2,'2001-01-1','2002-01-1');
+INSERT into func_proj (cod_func, cod_proj, inicio_proj, fim_proj) values (3,3,'2001-01-1','2002-01-1');
+INSERT into func_proj (cod_func, cod_proj, inicio_proj, fim_proj) values (4,4,'2001-01-1','2002-01-1');
+INSERT into func_proj (cod_func, cod_proj, inicio_proj, fim_proj) values (5,5,'2001-01-1','2002-01-1');
+INSERT into func_proj (cod_func, cod_proj, inicio_proj, fim_proj) values (6,6,'2001-01-1','2002-01-1');
+INSERT into func_proj (cod_func, cod_proj, inicio_proj, fim_proj) values (7,7,'2001-01-1','2002-01-1');
+INSERT into func_proj (cod_func, cod_proj, inicio_proj, fim_proj) values (8,8,'2001-01-1','2002-01-1');
+INSERT into func_proj (cod_func, cod_proj, inicio_proj, fim_proj) values (9,9,'2001-01-1','2002-01-1');
+INSERT into func_proj (cod_func, cod_proj, inicio_proj, fim_proj) values (10,10,'2001-01-1','2002-01-1');
+
