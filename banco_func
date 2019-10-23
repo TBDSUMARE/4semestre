@@ -1,0 +1,36 @@
+/*create database tolosa;*/
+
+create table departamento
+(
+	cod_depto int primary key auto_increment,
+    desc_depto varchar(100)
+);
+
+create table projeto
+(
+	cod_proj int primary key auto_increment,
+    desc_proj varchar(100)
+);
+
+create table funcionario
+(
+	cod_func int primary key auto_increment,
+    nome_func varchar(100),
+    nasc_func datetime,
+    sexo_func char(1),
+    salario_func decimal(12,2),
+    cod_depto int(11),
+    foreign key fk_cod_depto (cod_depto) references departamento(cod_depto) 
+);
+
+create table func_proj
+(
+	cod_func int ,
+    cod_proj int ,
+    inicio_proj datetime null,
+    fim_proj datetime null,
+    primary key (cod_func, cod_proj ),
+    foreign key fk_cod_func (cod_func) references funcionario(cod_func),
+    foreign key fk_cod_proj (cod_proj) references projeto(cod_proj)
+);
+
