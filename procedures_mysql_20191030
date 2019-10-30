@@ -1,0 +1,78 @@
+Exercicio 01
+
+DELIMITER $$ 
+create procedure lista_nome()
+begin
+	select 'Giovanni dos santos Tolosa, Tecnologia em Banco de Dados';
+
+end	$$
+DELIMITER ; 
+
+call lista_nome();	
+
+
+Exercicio 02
+
+DELIMITER $$ 
+create procedure aumenta_salario_10()
+begin
+	update funcionario 
+    set salario_func = salario_func + (salario_func * 0.1);
+
+end	$$
+DELIMITER ; 
+
+SET SQL_SAFE_UPDATES = 0;
+call aumenta_salario_10();	
+
+Exercicio 03
+
+DELIMITER $$ 
+create procedure aumenta_salario_porc(in perc decimal)
+begin
+	update funcionario 
+    set salario_func = salario_func + ((salario_func * perc) / 100);
+
+end	$$
+DELIMITER ; 
+
+call aumenta_salario_porc(100);	
+
+Exercicio 04
+
+DELIMITER $$ 
+create procedure aumenta_salario_func
+(
+in cd_func int,
+in perc decimal
+)
+begin
+	update funcionario
+    set salario_func = salario_func + ((salario_func * perc) / 100)
+    where cod_func = cd_func ;
+
+end	$$
+DELIMITER ; 
+
+call aumenta_salario_func(1,200);
+
+Exercicio 05
+
+DELIMITER $$ 
+create procedure delete_func
+(
+in cd_func int
+)
+begin
+	delete
+    from funcionario
+    where cod_func = cd_func ;
+
+end	$$
+DELIMITER ; 
+
+
+call delete_func(15);
+
+
+
