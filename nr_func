@@ -1,0 +1,29 @@
+DELIMITER $$
+create procedure sp_count_func
+(
+)
+begin
+	declare  qtd_func 	int;
+	declare  nm_sexo 	varchar(50);
+	declare qtd_h int;
+    declare qtd_m int;
+    
+    select count(1) into qtd_h from funcionario where sexo_func = 'M'; 
+    select count(1) into qtd_f from funcionario where sexo_func = 'F';
+    
+    if qtd_h > qtd_m then
+		select ('Existe mais Homens ') as result;
+        set qtd_func = qtd_h;
+        set nm_sexo = 'M';
+		elseif
+			qtd_m > qtd_f then
+			select 'Existe mais Mulheres ' as result;
+			set qtd_func = qtd_h;
+			set nm_sexo = 'F';
+	else
+		select 'A mesma quantidade';
+	end if;
+    
+    select qtd_func as qtd, nm_sexo as sexo;
+end $$
+DELIMITER ;
