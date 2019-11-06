@@ -1,0 +1,19 @@
+DELIMITER $$
+create procedure sp_calc_media
+(
+	in vl_media float,
+    in nr_faltas int 
+)
+begin
+	if nr_faltas >= 15 then
+		select 'Reprovado' as resultado;
+	elseif vl_media < 4 then
+			select 'Reprovado' as resutado;
+		elseif vl_media < 6 then
+			select 'Exame' as resultado;
+            else	
+				select 'Aprovado!' as resultado;
+	end if;	
+
+end $$
+DELIMITER ;
