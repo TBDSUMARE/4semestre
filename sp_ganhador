@@ -1,0 +1,23 @@
+DELIMITER $$
+create procedure sp_ganhador 
+(
+in nm_time1 varchar(50),
+in vl_placar1 int,
+in nm_time2 varchar(50),
+in vl_placar2 int 
+)
+begin
+	if vl_placar1 > vl_placar2
+    then
+		select  concat('O vencedor é o time ', nm_time1, ' ',  CAST(vl_placar1 as varchar(10)), ' X ', CAST(vl_placar2 as varchar(10)),' ',nm_time2) as resultado;
+    else
+		if vl_placar2 > vl_placar1
+        then
+			select  concat('O vencedor é o time ', nm_time2, ' ',  CAST(vl_placar2 as varchar(10)), ' X ', CAST(vl_placar1 as varchar(10)),' ',nm_time1) as resultado;
+		else
+			select concat('O jogo empatou com o placar de ', CAST(vl_placar1 as varchar(10)), ' X ', CAST(vl_placar2 as varchar(10)), ' !') as resultado;
+		end if;
+	end if;       
+
+end $$
+DELIMITER ;
