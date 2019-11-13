@@ -1,0 +1,8 @@
+DELIMITER $$
+create trigger tg_matricula AFTER INSERT 
+on aluno
+FOR each row
+begin
+	insert into matricula (aluno_cod, curso_cod) values (new.cod, new.curso);
+end $$
+DELIMITER ;
