@@ -1,29 +1,25 @@
 DELIMITER $$
 create procedure sp_count_func
 (
+	out vQtd_func int
 )
 begin
-	declare  qtd_func 	int;
-	declare  nm_sexo 	varchar(50);
-	declare qtd_h int;
-    declare qtd_m int;
+	
+	declare vNm_sexo 	varchar(50);
+	declare vQtd_f int;
+    declare vQtd_m int;
     
-    select count(1) into qtd_h from funcionario where sexo_func = 'M'; 
-    select count(1) into qtd_f from funcionario where sexo_func = 'F';
-    
-    if qtd_h > qtd_m then
-		select ('Existe mais Homens ') as result;
-        set qtd_func = qtd_h;
-        set nm_sexo = 'M';
-		elseif
-			qtd_m > qtd_f then
-			select 'Existe mais Mulheres ' as result;
-			set qtd_func = qtd_h;
-			set nm_sexo = 'F';
-	else
-		select 'A mesma quantidade';
-	end if;
-    
-    select qtd_func as qtd, nm_sexo as sexo;
+    select count(1) into vQtd_m from funcionario where sexo_func = 'M'; 
+    select count(1) into vQtd_f from funcionario where sexo_func = 'F';
+        
+    if vQtd_m > vQtd_f 
+    then
+		set vQtd_func = vQtd_m;
+        select 'O maior numero de funcionarios é do sexo Masculino';
+    else
+		set vQtd_func = vQtd_f;
+        select 'O maior numero de funcionarios é do sexo Feminino';
+    end if;    
+
 end $$
 DELIMITER ;
