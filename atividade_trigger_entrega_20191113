@@ -1,10 +1,12 @@
 
 create table historico_salario
 (
-	cod_func int primary key auto_increment,
+	id_historico int primary key auto_increment,
+	cod_func int ,
     vl_salario_old	float,
     vl_salario_new	float 
 );
+
 
 
 DELIMITER $$
@@ -14,9 +16,9 @@ on funcionario
 FOR each row
 begin
 	if new.salario_func <> old.salario_func then
-		insert into historico_salario (cod_func, vl_salario_old, vl_salario_new)
-        values (cod_func, old.salario_func, new.salario_func);
-    end if;
+		INSERT INTO historico_salario (cod_func,vl_salario_old,vl_salario_new) 
+        	VALUES (old.cod_func, old.salario_func, new.salario_func);
+    	end if;
 end $$
 DELIMITER ;
 
