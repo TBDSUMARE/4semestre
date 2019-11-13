@@ -1,0 +1,37 @@
+
+create table historico_salario
+(
+	cod_func int primary key auto_increment,
+    vl_salario_old	float,
+    vl_salario_new	float 
+);
+
+
+DELIMITER $$
+
+create trigger tg_atualiza_salario AFTER UPDATE
+on funcionario
+FOR each row
+begin
+	if new.salario_func <> old.salario_func then
+		insert into historico_salario (cod_func, vl_salario_old, vl_salario_new)
+        values (cod_func, old.salario_func, new.salario_func);
+    end if;
+end $$
+DELIMITER ;
+
+
+
+
+
+
+
+DELIMITER $$
+create trigger tg_matricula AFTER INSERT 
+on aluno
+FOR each row
+begin
+	insert into matricula (aluno_cod, curso_cod) values (new.cod, new.curso);
+end $$
+DELIMITER ;
+
