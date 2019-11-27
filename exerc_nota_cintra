@@ -1,0 +1,71 @@
+/* Criação do banco */
+
+create table academia
+(
+	cod_cliente int auto_increment primary key,
+    nm_cliente varchar(500),
+    vl_altura  numeric(9,2) null,
+    vl_peso    numeric(9,2) null
+);
+
+/* Exercicio 1: Criação da coluna para armazenar o peso ideal */
+alter table academia add vl_peso_ideal numeric(9,2) null;
+
+/* Exercicio 2 */
+
+/* Trigger Insert */
+
+DELIMITER $$
+create trigger tg_peso_ideal_insert BEFORE INSERT 
+on academia
+FOR each row
+begin
+	
+	set new.vl_peso_ideal =  72.7 * new.vl_altura - 58;
+    
+end $$
+DELIMITER ;
+
+/* Trigger Update */
+
+DELIMITER $$
+create trigger tg_peso_ideal_update BEFORE UPDATE 
+on academia
+FOR each row
+begin
+	if new.vl_altura <> old.vl_altura then
+		set new.vl_peso_ideal =  72.7 * new.vl_altura - 58;
+    end if;
+end $$
+DELIMITER ;
+
+
+/* Exercicio 3 */
+
+DELIMITER $$
+create procedure sp_verifica_peso
+(
+	in vCod_cliente int
+)
+begin
+	
+	declare vVl_peso_ideal numeric(9,2);
+    declare vVl_peso numeric(9,2);
+    
+    select vl_peso_ideal into vVl_peso_ideal from academia where cod_cliente = vCod_cliente; 
+    select vl_peso into vVl_peso from academia where cod_cliente = vCod_cliente; 
+        
+    if vVl_peso > vVl_peso_ideal 
+    then
+        select 'O cliente esta acima do peso ideal!';
+    else if vVl_peso < vVl_peso_ideal
+		then
+			select 'O cliente esta abaixo do peso ideal!';
+		else
+			select 'O cliente esta no peso ideal!';
+		end if;
+    end if;    
+
+end $$
+DELIMITER ;
+
